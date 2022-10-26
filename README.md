@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Run the migrations
 
-Things you may want to cover:
+Install RabbitMQ, Check if it runs on "http://localhost:15672/", credentials: guest/guest
 
-* Ruby version
+Run "SensorSimulatorJob.perform_now" once and run "rake rabbitmq:setup". This will create exchange and bind the queue.
 
-* System dependencies
+Go to "http://localhost:3000/temperature_readings/manage_comms"
 
-* Configuration
+Click "Start" to start the sensors and readings
 
-* Database creation
+Click "Toggle" to change comms status
 
-* Database initialization
+Click "CSV" to view the csv file in developer console
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Use the end-point "http://localhost:3000/temperature_readings/csv" to download CSV
