@@ -1,8 +1,9 @@
 module TemperatureReadingsHelper
 
   def find_records_and_write_to_file
+    file = Tempfile.create("temp.csv")
 
-    CSV.open("/Users/vijayasekardurairaju/Documents/funnel_cloud/temperatures.csv", "wb") do |csv|
+    CSV.open(file, "wb") do |csv|
       csv << ["Current Temperature", "Change in Temperature", "Timestamp"]
       previous_reading = TemperatureReading.order(:id).first
 
@@ -14,5 +15,6 @@ module TemperatureReadingsHelper
         end
       end
     end
+    file
   end
 end

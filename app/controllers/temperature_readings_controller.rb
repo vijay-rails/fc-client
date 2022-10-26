@@ -2,11 +2,9 @@ require 'CSV'
 class TemperatureReadingsController < ApplicationController
   include TemperatureReadingsHelper
   def csv
-    find_records_and_write_to_file
+    file = find_records_and_write_to_file
 
-    send_file("/Users/vijayasekardurairaju/Documents/funnel_cloud/temperatures.csv",
-      :filename => "temperatures.csv",
-      :type => "text/csv")
+    send_file(file, :filename => "temperatures.csv", :type => "text/csv")
   end
 
   def toggle_comms

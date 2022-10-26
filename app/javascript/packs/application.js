@@ -11,7 +11,6 @@ require("jquery")
 
 $(document).ready(function() {
   $('[data-js-start-link]').click(function(event){
-    alert('Sensor reading and publish to earth started');
     $.get('/temperature_readings/start', function(data) {
           let output = data;
           console.log(output)
